@@ -62,7 +62,7 @@ public class FruitResourceTest {
         Assertions.assertThat(products).hasSize(2);
         Assertions.assertThat(products.get(0)).containsKeys("name", "description");
     }
-/*
+
     @Test
     public void testList() {
         given()
@@ -119,5 +119,5 @@ public class FruitResourceTest {
             .get("/fruits/{name}")
         .then()
             .statusCode(404);
-    }*/
+    }
 }

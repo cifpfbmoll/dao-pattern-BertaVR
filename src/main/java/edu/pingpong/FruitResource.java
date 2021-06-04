@@ -40,4 +40,38 @@ public class FruitResource {
     public List <Fruit> list() {
         return service.list();
     }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Transactional
+    // curl -d '{"name":"Banana", "description":"Brings a Gorilla too"}'
+    // -H "Content-Type: application/json" -X POST http://localhost:8080/fruits
+    public List<Fruit> add(@Valid Fruit fruit) {
+        service.add(fruit);
+        return this.list();
+    }
+
+    @DELETE
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Transactional
+    // curl -d '{"name":"Banana", "description":"Brings a Gorilla too"}'
+    // -H "Content-Type: application/json" -X DELETE http://localhost:8080/fruits   
+    public List<Fruit> delete(@Valid Fruit fruit) {
+        service.remove(fruit.getName());
+        return list();
+    }
+
+    @GET
+    @Path("/{name}")
+    @Produces(MediaType.APPLICATION_JSON)
+    // curl -w "\n" http://localhost:8080/fruits/Apple -v
+    // curl -w "\n" http://localhost:8080/fruits/jkl -v
+    public Response get(@PathParam("name") String name) {
+        Optional<Fruit> fruit = service.getFruit(name);
+        return fruit.isPresent()? 
+            Response.status(Response.Status.OK).entity(fruit.get()).build() : 
+            Response.status(Response.Status.NOT_FOUND).build();
+    }
 }
