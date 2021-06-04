@@ -19,5 +19,19 @@ public class ServiceFruit {
         return repo.listAllOrderedByName(); 
     } 
 
+    public void add(Fruit fruit) {
+        repo.persist(fruit);
+    }
+
+    public void remove(String name) {
+        repo.deleteByName(name);
+    }
+
+    public Optional<Fruit> getFruit(String name) {
+        return name.isBlank()? 
+            Optional.ofNullable(null) : 
+            repo.findByNameOptional(name);
+    }
+
     
 }

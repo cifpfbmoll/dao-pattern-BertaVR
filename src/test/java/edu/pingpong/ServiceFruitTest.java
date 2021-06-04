@@ -36,7 +36,7 @@ public class ServiceFruitTest {
         Assertions.assertThat(service.list().stream().anyMatch(f -> f.getName().equals("Apple"))).isTrue();
     }
     
-  /*  @Test
+    @Test
     public void addTest() {
         service.add(new Fruit("Banana", "And an attached Gorilla"));
         Assertions.assertThat(service.list()).hasSize(3);
@@ -46,6 +46,7 @@ public class ServiceFruitTest {
         repo.delete("name", "Banana");
         Assertions.assertThat(repo.count()).isEqualTo(2);
     }
+
     @Test
     public void removeTest(){
         service.remove("Apple");
@@ -61,5 +62,5 @@ public class ServiceFruitTest {
     public void getFruitTest() {
         Assertions.assertThat(service.getFruit("Apple")).get().hasFieldOrPropertyWithValue("name", "Apple").hasFieldOrPropertyWithValue("description", "Winter fruit");
         Assertions.assertThat(service.getFruit("Mandarina")).isEmpty();
-    }    */
+    }    
 }
