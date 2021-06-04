@@ -47,7 +47,7 @@ public class FruitResourceTest {
             .statusCode(200)
             .body(is("Colmados Farmer Rick"));
     }
-
+/*
     @Test
     public void testListEndpoint() {
         // Si el content-type de la peticion es JSON 
@@ -119,5 +119,5 @@ public class FruitResourceTest {
             .get("/fruits/{name}")
         .then()
             .statusCode(404);
-    }
+    }*/
 }
