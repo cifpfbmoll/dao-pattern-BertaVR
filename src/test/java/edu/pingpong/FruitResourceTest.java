@@ -47,7 +47,7 @@ public class FruitResourceTest {
             .statusCode(200)
             .body(is("Colmados Farmer Rick"));
     }
-/*
+
     @Test
     public void testListEndpoint() {
         // Si el content-type de la peticion es JSON 
@@ -62,7 +62,7 @@ public class FruitResourceTest {
         Assertions.assertThat(products).hasSize(2);
         Assertions.assertThat(products.get(0)).containsKeys("name", "description");
     }
-
+/*
     @Test
     public void testList() {
         given()
